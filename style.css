@@ -1,130 +1,99 @@
-/* Reset */
-* {
+/* 1. ตั้งค่าพื้นหลังทั้งหมดของเว็บเป็นสีดำ และเปลี่ยนสีตัวอักษรหลักเป็นสีขาวเพื่อให้เปลี่ยนกับพื้นหลัง */
+body {
+    background-color: #121212; /* สีดำแบบสบายตา (Dark Mode) */
+    color: #ffffff;            /* ตัวอักษรทั่วไปเป็นสีขาว */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body */
-body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: #f5f7fa;
-    color: #333;
     line-height: 1.6;
 }
 
-/* Header */
+/* 2. ปรับแต่งส่วนหัว (Header) */
 header {
-    background: linear-gradient(135deg, #0077ff, #00c6ff);
-    color: white;
+    background-color: #1a1a1a; /* ดำเข้มขึ้นเล็กน้อยเพื่อให้แยกสัดส่วนชัดเจน */
     text-align: center;
-    padding: 80px 20px;
+    padding: 40px 20px;
+    border-bottom: 2px solid #ffcc00; /* เพิ่มเส้นใต้สีเหลือง */
 }
 
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+/* 3. ไฮไลท์คำว่า THANACHAI และหัวข้อหลักให้เป็นสีเหลือง */
+header h1, 
+#about h2, 
+#projects h2, 
+#skills h2 {
+    color: #ffcc00; /* สีเหลืองทองเด่น ๆ */
 }
 
-header p {
-    font-size: 1.2rem;
-}
-
-/* Sections */
-section {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-section h2 {
-    color: #0077ff;
-    margin-bottom: 20px;
-    border-bottom: 3px solid #0077ff;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-/* Projects */
-.project {
-    background: #f8f9fc;
+/* 4. ปรับแต่งส่วนเนื้อหาหลัก (Main) */
+main {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    border-left: 5px solid #0077ff;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: 0.3s;
 }
 
-.project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+section {
+    margin-bottom: 40px;
+}
+
+/* 5. จัดการรูปโปรไฟล์ให้สวยงาม */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffcc00; /* ขอบรูปสีเหลืองเข้ากับธีม */
+    margin-bottom: 15px;
+}
+
+/* 6. ปรับแต่งกล่องผลงาน (Projects) ให้เข้ากับพื้นหลังสีดำ */
+.project {
+    background-color: #1e1e1e; /* กล่องสีเทาเข้ม */
+    border: 1px solid #333333;  /* ขอบสีเทาจาง ๆ */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 .project h3 {
-    color: #222;
-    margin-bottom: 10px;
+    color: #ffcc00; /* ชื่อโปรเจกต์สีเหลือง */
+    margin-top: 0;
 }
 
-/* Skills */
-#skills ul {
-    list-style: none;
+.project-img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
 }
 
-#skills li {
-    background: #0077ff;
-    color: white;
-    margin: 10px 0;
-    padding: 12px 15px;
-    border-radius: 8px;
-    transition: 0.3s;
+/* 7. ปรับแต่งรายการทักษะ */
+ul {
+    padding-left: 20px;
 }
 
-#skills li:hover {
-    background: #005fcc;
-    transform: translateX(5px);
+ul li {
+    margin-bottom: 8px;
+    color: #e0e0e0;
 }
 
-/* Footer */
+/* 8. ปรับแต่งส่วนท้าย (Footer) */
 footer {
+    background-color: #1a1a1a;
     text-align: center;
-    background: #222;
-    color: white;
-    padding: 25px;
+    padding: 20px;
     margin-top: 40px;
+    border-top: 1px solid #333333;
+    font-size: 0.9rem;
+    color: #aaaaaa;
 }
 
+/* สีลิงก์ติดต่อให้เป็นสีเหลือง */
 footer a {
-    color: #00c6ff;
+    color: #ffcc00;
     text-decoration: none;
 }
 
 footer a:hover {
-    text-decoration: underline;
-}
-
-/* Animation */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-}
-
-.fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    section {
-        margin: 20px;
-        padding: 20px;
-    }
+    text-decoration: underline; /* ขีดเส้นใต้เมื่อเอาเมาส์ไปชี้ */
 }
