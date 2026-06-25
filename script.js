@@ -46,8 +46,8 @@ rotateLogo();
 
 
 const CARDS = [
-  'url("งาน1.png")',
-  'url("งาน2.png")',
+  'urlWIN_20260625_23_01_32_Pro.jpg',
+  'urlWIN_20260625_21_22_18_Pro..jpg',
   'url("งาน3.png")',
   'url("งาน4.png")'
 ];
