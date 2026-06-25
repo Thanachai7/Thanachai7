@@ -7,6 +7,23 @@ body {
     padding: 0;
     line-height: 1.6;
 }
+/* 9. กรอบผลงานวิชาคอมพิวเตอร์ */
+#skills {
+background-color: #1e1e1e;
+border: 2px solid #ffcc00;
+border-radius: 10px;
+padding: 20px;
+margin-bottom: 40px;
+}
+
+#skills h2 {
+color: #ffcc00;
+margin-top: 0;
+}
+
+#skills li {
+color: #ffffff;
+}
 
 /* 2. ปรับแต่งส่วนหัว (Header) */
 header {
