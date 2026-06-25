@@ -22,3 +22,18 @@ sections.forEach(section => {
 
 // ข้อความต้อนรับ
 console.log("Welcome to THANACHAI Portfolio");
+const logo = document.getElementById("spin-logo");
+
+let angle = 0;
+
+function rotateLogo() {
+    angle += 2; // ความเร็วการหมุน
+    logo.style.transform = `rotate(${angle}deg)`;
+    requestAnimationFrame(rotateLogo);
+}
+
+rotateLogo();
+
+// แสดงปีปัจจุบันใน footer
+document.getElementById("year").textContent =
+new Date().getFullYear();
