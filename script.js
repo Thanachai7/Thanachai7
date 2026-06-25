@@ -44,12 +44,12 @@ rotateLogo();
 // รูป Carousel 3D
 // =====================================
 
+
 const CARDS = [
-'url("cat.jpg")',
-'url("m1.jpg")',
-'url("cat2.png")',
-'url("cat3.jpg")',
-'url("cat4.jpg")'
+  'url("งาน1.png")',
+  'url("งาน2.png")',
+  'url("งาน3.png")',
+  'url("งาน4.png")'
 ];
 
 const CARD_W = 160;
