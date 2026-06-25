@@ -37,3 +37,14 @@ rotateLogo();
 // แสดงปีปัจจุบันใน footer
 document.getElementById("year").textContent =
 new Date().getFullYear();
+// script.js
+
+const CARDS = [
+  'url("cat.jpg")',
+  'url("m1.jpg")',
+  'url("cat2.png")',
+  'url("cat3.jpg")',
+  'url("cat4.jpg")',
+];
+
+// โค้ดส่วนที่เหลือต่อจากนี้...
