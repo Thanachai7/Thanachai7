@@ -16,14 +16,13 @@ threshold: 0.2
 
 sections.forEach((section) => {
 section.classList.add("fade-in");
-observer.observe(section);
+
 });
 
 // ข้อความต้อนรับ
 console.log("Welcome to THANACHAI Portfolio");
 
 // โลโก้หมุน
-const logo = document.getElementById("spin-logo");
 
 if (logo) {
 let angle = 0;
