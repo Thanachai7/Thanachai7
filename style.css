@@ -199,12 +199,4 @@ transform: rotate(360deg) scale(1.05);
     animation: spin 5s linear infinite;
 }
 
-/* คำสั่งหมุน */
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
+
