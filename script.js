@@ -44,93 +44,96 @@ rotateLogo();
 // =====================================
 
 
-const CARDS = [
-  'urlWIN_20260625_23_01_32_Pro.jpg',
-  'urlWIN_20260625_21_22_18_Pro..jpg',
-  'url("งาน3.png")',
-  'url("งาน4.png")'
-];
+// ปีปัจจุบัน
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
-const CARD_W = 160;
-const GAP = 30;
-const SPEED = 0.7;
-const TILT = 50;
+// เอฟเฟกต์ Fade In
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+},{
+    threshold:0.2
+});
+
+sections.forEach((section)=>{
+    section.classList.add("fade-in");
+    observer.observe(section);
+});
+
+console.log("Welcome to THANACHAI Portfolio");
+
+// =====================
+// 3D Carousel
+// =====================
+
+const CARDS = [
+    'url("WIN_20260625_23_01_32_Pro.jpg")',
+    'url("WIN_20260625_21_22_18_Pro.jpg")',
+    'url("WIN_25690625_09_39_07_Pro.jpg")',
+    'url("สัญญาณรบกวน (Noise) ในกระบวนการสื่อสารหมายถึงอะไรบ.png")'
+];
 
 const track = document.getElementById("track");
 
-if (track) {
+if(track){
 
-```
-const N = CARDS.length;
-const STEP = CARD_W + GAP;
-const totalW = N * STEP;
+    const radius = 350;
+    let angle = 0;
 
-const scene = track.parentElement;
+    CARDS.forEach((img,index)=>{
 
-const REPEATS = Math.max(
-    3,
-    Math.ceil((window.innerWidth * 2.5) / totalW) + 1
-);
-
-for (let rep = 0; rep < REPEATS; rep++) {
-    CARDS.forEach(bg => {
         const card = document.createElement("div");
 
         card.className = "card";
-        card.style.background = bg;
-        card.style.backgroundSize = "cover";
-        card.style.backgroundPosition = "center";
+        card.style.backgroundImage = img;
 
         track.appendChild(card);
     });
-}
 
-const allCards = [...track.children];
-let offset = 0;
+    const cards = document.querySelectorAll(".card");
 
-function updateCarousel() {
+    function animate(){
 
-    offset = (offset + SPEED) % totalW;
+        angle += 0.3;
 
-    const cw = scene.getBoundingClientRect().width;
+        cards.forEach((card,index)=>{
 
-    allCards.forEach((card, idx) => {
+            const theta =
+            (360/cards.length)*index + angle;
 
-        const i = idx % N;
-        const rep = Math.floor(idx / N);
+            const rad =
+            theta * Math.PI / 180;
 
-        const baseX =
-            i * STEP +
-            rep * totalW -
-            offset -
-            (totalW * Math.floor(REPEATS / 2));
+            const x =
+            Math.sin(rad) * radius;
 
-        const norm = (baseX + CARD_W / 2) / (cw * 0.45);
-        const absN = Math.abs(norm);
+            const z =
+            Math.cos(rad) * radius;
 
-        if (absN > 2.6) {
-            card.style.opacity = 0;
-            return;
-        }
+            const scale =
+            (z + radius) / (radius * 2);
 
-        const scale = Math.max(0.35, 1 - absN * 0.55);
-        const rotY = norm * TILT;
+            card.style.left =
+            `calc(50% + ${x}px - 90px)`;
 
-        card.style.transform =
-            `translateX(${baseX - CARD_W / 2}px)
-             translateY(-50%)
-             perspective(900px)
-             rotateY(${rotY}deg)
-             scale(${scale})`;
+            card.style.transform =
+            `translateY(-50%) scale(${0.5 + scale})`;
 
-        card.style.opacity = Math.max(0, 1 - absN * 0.62);
-        card.style.zIndex = Math.round((1 - absN) * 20);
-    });
+            card.style.zIndex =
+            Math.floor(scale * 100);
 
-    requestAnimationFrame(updateCarousel);
-}
+            card.style.opacity =
+            0.3 + scale;
+        });
 
-updateCarousel();
-```
+        requestAnimationFrame(animate);
+    }
 
+    animate();
 }
