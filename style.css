@@ -208,10 +208,3 @@ transform: rotate(360deg) scale(1.05);
         transform: rotate(360deg);
     }
 }
-#spin-logo{
-    font-size: 40px;
-    text-align: center;
-    margin: 20px 0;
-    display: inline-block;
-    width: 100%;
-}
